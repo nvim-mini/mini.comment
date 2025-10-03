@@ -1,10 +1,7 @@
 --- *mini.comment* Comment lines
---- *MiniComment*
 ---
 --- MIT License Copyright (c) 2021 Evgeni Chasnovski
----
---- ==============================================================================
----
+
 --- Features:
 --- - Commenting in Normal mode respects |count| and is dot-repeatable.
 ---
@@ -49,6 +46,7 @@
 --- of different scenarios and customization intentions, writing exact rules
 --- for disabling module's functionality is left to user. See
 --- |mini.nvim-disabling-recipes| for common recipes.
+---@tag MiniComment
 
 -- Module definition ==========================================================
 local MiniComment = {}
@@ -74,9 +72,7 @@ MiniComment.setup = function(config)
   H.apply_config(config)
 end
 
---- Module config
----
---- Default values:
+--- Defaults ~
 ---@eval return MiniDoc.afterlines_to_code(MiniDoc.current.eval_section)
 ---@text # Options ~
 ---
@@ -162,7 +158,7 @@ MiniComment.config = {
 -- Module functionality =======================================================
 --- Main function to be mapped
 ---
---- It is meant to be used in expression mappings (see |map-<expr>|) to enable
+--- It is meant to be used in expression mappings (see |:map-<expr>|) to enable
 --- dot-repeatability and commenting on range. There is no need to do this
 --- manually, everything is done inside |MiniComment.setup()|.
 ---

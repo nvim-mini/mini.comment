@@ -1,10 +1,9 @@
 *mini.comment* Comment lines
-*MiniComment*
 
 MIT License Copyright (c) 2021 Evgeni Chasnovski
 
-==============================================================================
-
+------------------------------------------------------------------------------
+                                                                   *MiniComment*
 Features:
 - Commenting in Normal mode respects |count| and is dot-repeatable.
 
@@ -67,9 +66,7 @@ Usage ~
 ------------------------------------------------------------------------------
                                                             *MiniComment.config*
                               `MiniComment.config`
-Module config
-
-Default values:
+Defaults ~
 >lua
   MiniComment.config = {
     -- Options which control module behavior
@@ -157,7 +154,7 @@ Notes:
                          `MiniComment.operator`({mode})
 Main function to be mapped
 
-It is meant to be used in expression mappings (see |map-<expr>|) to enable
+It is meant to be used in expression mappings (see |:map-<expr>|) to enable
 dot-repeatability and commenting on range. There is no need to do this
 manually, everything is done inside |MiniComment.setup()|.
 
