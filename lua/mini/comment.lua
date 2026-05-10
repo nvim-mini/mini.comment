@@ -318,9 +318,10 @@ MiniComment.textobject = function()
     return comment_check(l) or (ignore_blank_line and H.is_blank(l))
   end
 
-  -- Recognize textobject only if on comment or blank between comments
-  local lnum_prev, lnum_next = vim.fn.prevnonblank(lnum_cur), vim.fn.nextnonblank(lnum_cur)
-  local is_in_comments = check(lnum_prev) and (lnum_prev == lnum_cur or check(lnum_next))
+  -- Recognize textobject if on comment or (possibly) blank between comments
+  local lnum_prev = vim.fn.prevnonblank(lnum_cur)
+  local is_in_comments = (lnum_prev == lnum_cur and check(lnum_prev))
+    or (ignore_blank_line and lnum_prev ~= lnum_cur and check(lnum_prev) and check(vim.fn.nextnonblank(lnum_cur)))
 
   if is_in_comments then
     lnum_from = lnum_cur
